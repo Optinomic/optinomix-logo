@@ -10,7 +10,7 @@ var moving_circle_stroke_width = 2;
 var show_moving_circle_centres = true;
 var moving_circle_centre_radius = 1;
 
-var svg_width = 900, svg_height = 420;
+var svg_width = 920, svg_height = 420;
 
 var outer_circle_radius = 180;
 var outer_circle_x = 200, outer_circle_y = 200;
@@ -91,7 +91,7 @@ circles(ringg, rs, true);
 if (show_moving_circle_centres)
   circles(centreg, make_centres(rs), true);
 d3.timer(function() {
-  var az = 2 * Math.PI * (Date.now() - start) / animation_speed / 1000;
+  var az = -2 * Math.PI * (Date.now() - start) / animation_speed / 1000;
   var rs = ring_outlines(az);
   circles(ringg, rs, false);
   if (show_moving_circle_centres)
