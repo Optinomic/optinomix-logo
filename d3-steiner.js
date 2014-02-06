@@ -4,7 +4,7 @@ var moving_circle_stroke = "blue";
 var moving_circle_centre_fill = "green";
 
 var outer_circle_stroke_width = 5;
-var inner_circle_stroke_width = 10;
+var inner_circle_stroke_width = 15;
 var moving_circle_stroke_width = 2;
 
 var show_moving_circle_centres = true;
@@ -16,7 +16,17 @@ var outer_circle_radius = 180;
 var outer_circle_x = 200, outer_circle_y = 200;
 
 var ncircles = 20;
-var offset_distance = 60, offset_angle = -45;
+var offset_distance = 70, offset_angle = -45;
+
+var logo_x = 30, logo_y = 5;
+var logo_fill = "red";
+var logo_font_size = 180;
+var logo_font_family = null;
+var logo_font_style = 'italic';
+var logo_font_weight = null;
+var logo_font_variant = null;
+var logo_font_size = 180;
+var logo = "ptinomix";
 
 var animation_speed = 20;
 
@@ -36,6 +46,19 @@ var svg = d3.select("body").append("svg")
 var maing = svg.append("g");
 var ringg = svg.append("g");
 var centreg = svg.append("g");
+
+svg.selectAll("text").data([logo]).enter().append("text")
+  .text(logo)
+  .attr("transform", "translate(" + logo_x + "," + logo_y + ")")
+  .attr('text-anchor', 'start')
+  .style('baseline-shift', '-50%')
+  .style('dominant-baseline', 'middle')
+  .style('font-size', logo_font_size)
+  .style('font-family', logo_font_family)
+  .style('font-style', logo_font_style)
+  .style('font-weight', logo_font_weight)
+  .style('font-variant', logo_font_variant)
+  .attr("fill", logo_fill);
 
 function circles(g, d, first)
 {
