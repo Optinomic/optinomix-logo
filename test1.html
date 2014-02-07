@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en" ng-app="MyApp">
+<head>
+  <meta charset="utf-8">
+  <title>Optinomix logo examples</title>
+</head>
+<body ng-controller="MyCtrl">
+  <br>
+  <br>
+  <div class="container">
+    <optinomix-logo size=200></optinomix-logo>
+
+    <p>Content goes here</p>
+  </div>
+
+  <script src="d3.v2.js"></script>
+  <script src="angular.js"></script>
+  <script src="optinomix-logo.js"></script>
+  <script>
+    angular.module('MyApp', ['optinomix-logo'])
+      .controller('MyCtrl', [function() { }]);
+  </script>
+</body>
+</html>
