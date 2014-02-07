@@ -11,12 +11,12 @@
    xmlns:xlink="http://www.w3.org/1999/xlink"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="744.09448819"
-   height="1052.3622047"
+   width="296.87735"
+   height="62.454376"
    id="svg2"
    version="1.1"
    inkscape:version="0.48.4 r9939"
-   sodipodi:docname="optinomix_simple.svg">
+   sodipodi:docname="optinomix.svg">
   <sodipodi:namedview
      id="base"
      pagecolor="#ffffff"
@@ -25,18 +25,22 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="1.979899"
-     inkscape:cx="170.92236"
-     inkscape:cy="941.6495"
+     inkscape:cx="103.69647"
+     inkscape:cy="6.2566419"
      inkscape:document-units="px"
      inkscape:current-layer="text2985"
      showgrid="false"
      inkscape:snap-global="true"
      inkscape:object-paths="true"
-     inkscape:window-width="1366"
-     inkscape:window-height="716"
-     inkscape:window-x="-8"
-     inkscape:window-y="1016"
-     inkscape:window-maximized="1" />
+     inkscape:window-width="1914"
+     inkscape:window-height="1050"
+     inkscape:window-x="0"
+     inkscape:window-y="24"
+     inkscape:window-maximized="0"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0" />
   <defs
      id="defs4">
     <linearGradient
@@ -58,15 +62,16 @@
     <marker
        style="overflow:visible"
        id="Arrow1Lstart"
-       refX="0.0"
-       refY="0.0"
+       refX="0"
+       refY="0"
        orient="auto"
        inkscape:stockid="Arrow1Lstart">
       <path
-         transform="scale(0.8) translate(12.5,0)"
-         style="fill-rule:evenodd;stroke:#000000;stroke-width:1.0pt"
-         d="M 0.0,0.0 L 5.0,-5.0 L -12.5,0.0 L 5.0,5.0 L 0.0,0.0 z "
-         id="path5668" />
+         transform="matrix(0.8,0,0,0.8,10,0)"
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1pt"
+         d="M 0,0 5,-5 -12.5,0 5,5 0,0 z"
+         id="path5668"
+         inkscape:connector-curvature="0" />
     </marker>
     <linearGradient
        gradientUnits="userSpaceOnUse"
@@ -82,7 +87,7 @@
        y2="402.28635"
        x2="175.75"
        y1="402.28635"
-       x1="154.40168"
+       x1="154.40169"
        id="linearGradient6312"
        xlink:href="#linearGradient6308"
        inkscape:collect="always" />
@@ -246,7 +251,7 @@
        y2="402.28635"
        x2="175.75"
        y1="402.28635"
-       x1="154.40168"
+       x1="154.40169"
        id="linearGradient6312-288"
        xlink:href="#linearGradient6308-893"
        inkscape:collect="always" />
@@ -369,14 +374,15 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
   <g
      id="layer1"
      inkscape:groupmode="layer"
-     inkscape:label="Layer 1">
+     inkscape:label="Layer 1"
+     transform="translate(-67.225892,-54.514948)">
     <g
        transform="translate(-2.1428572,-15)"
        id="text2985"

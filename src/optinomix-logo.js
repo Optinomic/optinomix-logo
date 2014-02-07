@@ -24,12 +24,17 @@ angular.module('optinomix-logo', []).directive('optinomixLogo', [function()
 {
   'use strict';
 
+  var logo_width_scale = 3.25;
+  var logo_width = 296.877;
+  var logo_centre_x = 34.406 / 2;
+  var logo_centre_y = 13.543 + 33.825 / 2 + 2;
+
   function preLink(scope, elm, as) {
     var size = as.size || 100;
     var logo_src = as.logoSrc || null;
 
     var svg_height = size;
-    var svg_width = logo_src ? 2.5 * size : size; // TODO: FIX!
+    var svg_width = logo_src ? logo_width_scale * size : size;
 
     scope.topsvg = elm.children()[0];
     $(elm).css("width", svg_width).css("height", svg_height);
@@ -55,24 +60,13 @@ angular.module('optinomix-logo', []).directive('optinomixLogo', [function()
     var moving_circle_stroke_width = as.strokeWidth || 2;
 
     var svg_height = size;
-    var svg_width = logo_src ? 2.5 * size : size; // TODO: FIX!
+    var svg_width = logo_src ? logo_width_scale * size : size;
 
     var outer_circle_radius = 0.95 * svg_height / 2;
     var outer_circle_x = svg_height / 2, outer_circle_y = svg_height / 2;
 
     var ncircles = 12;
     var offset_distance = 56, offset_angle = -45;
-
-    // TODO: SORT THIS OUT
-    // var logo_x = 30, logo_y = 5;
-    // var logo_fill = "red";
-    // var logo_font_size = 180;
-    // var logo_font_family = null;
-    // var logo_font_style = 'italic';
-    // var logo_font_weight = null;
-    // var logo_font_variant = null;
-    // var logo_font_size = 180;
-    // var logo = "ptinomix";
 
     var animation_speed = as.animation || 10;
 
@@ -84,24 +78,26 @@ angular.module('optinomix-logo', []).directive('optinomixLogo', [function()
     var xc0 = circout.x, yc0 = circout.y;
     var sf = outer_circle_radius / circout.r;
     var start = Date.now();
+    var inner_circ = main_circles(true)[1];
 
     var xlat = "translate(" + outer_circle_x + "," + outer_circle_y + ")";
     scope.svg.attr("transform", xlat).append("g");
     var maing = scope.svg.append("g");
     var ringg = scope.svg.append("g");
 
-    // svg.selectAll("text").data([logo]).enter().append("text")
-    //   .text(logo)
-    //   .attr("transform", "translate(" + logo_x + "," + logo_y + ")")
-    //   .attr('text-anchor', 'start')
-    //   .style('baseline-shift', '-50%')
-    //   .style('dominant-baseline', 'middle')
-    //   .style('font-size', logo_font_size)
-    //   .style('font-family', logo_font_family)
-    //   .style('font-style', logo_font_style)
-    //   .style('font-weight', logo_font_weight)
-    //   .style('font-variant', logo_font_variant)
-    //   .attr("fill", logo_fill);
+    if (logo_src) {
+      d3.xml(logo_src, "image/svg+xml", function(xml) {
+        var node = document.importNode(xml.documentElement, true);
+        var logog = scope.svg.append("g");
+        logog.node().appendChild(node);
+        var zeroxlat = "translate(" + (-logo_centre_x) + "," +
+          (-logo_centre_y) + ")";
+        var ctrxlat = "translate(" + inner_circ.x + "," + inner_circ.y + ")";
+        var scale_factor = size / 200 * 2;
+        var scale = "scale(" + scale_factor + ")";
+        logog.attr("transform", ctrxlat + scale + zeroxlat);
+      });
+    }
 
     function invert(xi, yi, ri) {
       var rad = Math.sqrt(Math.pow(xinvc - xi, 2) + Math.pow(yinvc - yi, 2))
@@ -179,7 +175,7 @@ angular.module('optinomix-logo', []).directive('optinomixLogo', [function()
                  '</svg>',
                '</div>'].join(''),
     replace: true,
-    scope: false,
+    scope: true,
     compile: function(elm, as, trans) {
       return { pre: preLink, post: postLink };
     }
