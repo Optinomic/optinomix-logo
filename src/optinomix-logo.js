@@ -66,9 +66,9 @@ angular.module('optinomix-logo', []).directive('optinomixLogo', [function()
     var outer_circle_x = svg_height / 2, outer_circle_y = svg_height / 2;
 
     var ncircles = 12;
-    var offset_distance = 56, offset_angle = -45;
+    var offset_distance = 56, offset_angle = -62;
 
-    var animation_speed = as.animation || 10;
+    var animation_speed = as.animation || 30;
 
     var piN = Math.sin(Math.PI / ncircles);
     var rinvc = offset_distance / 100;

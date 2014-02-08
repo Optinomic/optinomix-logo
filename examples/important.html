@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en" ng-app="MyApp">
+<head>
+    <meta charset="utf-8">
+    <title>Optinomix logo examples</title>
+    <style>
+        .optinomix-logo {
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .wait {
+            font-size: 16px;
+            font-weight: lighter;
+            text-align: center;
+            color: #888;
+        }
+    </style>
+</head>
+<body ng-controller="MyCtrl" bgcolor="white">
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+
+<div class="container">
+    <div class="center">
+
+
+        <optinomix-logo
+                size=40
+                background="white"
+                fill="red"
+                animation="5"
+                stroke="white"
+                stroke-width=1>
+        </optinomix-logo>
+        <br><br>
+        <optinomix-logo
+                size=40
+                background="white"
+                fill="orange"
+                animation="25"
+                stroke="white"
+                stroke-width=1>
+        </optinomix-logo>
+        <br><br>
+        <optinomix-logo
+                size=40
+                background="white"
+                fill="green"
+                animation="100"
+                stroke="white"
+                stroke-width=1>
+        </optinomix-logo>
+        <br><br>
+
+        <div class="wait">(Very important | high relevance | high plausibility) to (not important | low relevance | low
+            plausibility)
+        </div>
+    </div>
+</div>
+
+
+<script src="../lib/jquery.js"></script>
+<script src="../lib/d3.v2.js"></script>
+<script src="../lib/angular.js"></script>
+<script src="../src/optinomix-logo.js"></script>
+<script>
+    angular.module('MyApp', ['optinomix-logo'])
+            .controller('MyCtrl', [function () {
+            }]);
+</script>
+</body>
+</html>
