@@ -15,7 +15,7 @@
 //
 //  stroke-width  outline stroke width for bubbles
 //
-//  animate       either "off" (no animation) or the time in seconds for a
+//  animation     either "off" (no animation) or the time in seconds for a
 //                full cycle of the "bubbles"
 //
 //  debug         if present, display some extra framework graphical elements
