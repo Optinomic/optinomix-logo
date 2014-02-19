@@ -25,9 +25,9 @@ angular.module('optinomix-logo', []).directive('optinomixLogo', [function()
   'use strict';
 
   var logo_width_scale = 3.25;
-  var logo_width = 296.877;
-  var logo_centre_x = 34.406 / 2;
-  var logo_centre_y = 13.543 + 33.825 / 2 + 2;
+  var logo_width = 196.877;
+  var logo_centre_x = 35.406 / 2;
+  var logo_centre_y = 13.543 + 36.825 / 2 + 2;
 
   function preLink(scope, elm, as) {
     var size = as.size || 100;
