@@ -4,8 +4,13 @@
 //
 //  size          height in pixels (other dimensions calculated from this)
 //
+//  offset        X-offset of circles in pixels relative to left-hand end
+//                of logo
+//
 //  logo-src      URL for Optinomix logo -- if absent, just the "bubble"
 //                animation is shown
+//
+//  logo-layer    Is logo "under" or "over" circles?  Defaults to over.
 //
 //  background    background colour for outer circle
 //
@@ -45,7 +50,9 @@ angular.module('optinomix-logo', []).directive('optinomixLogo', [function()
 
   function postLink(scope, elm, as) {
     var size = as.size || 100;
+    var offset = as.offset || 0;
     var logo_src = as.logoSrc || null;
+    var logo_layer = as.logoLayer || 'over';
     var debug = as.hasOwnProperty("debug");
 
     var outer_circle_stroke = debug ? "black" : "none";
@@ -80,7 +87,8 @@ angular.module('optinomix-logo', []).directive('optinomixLogo', [function()
     var start = Date.now();
     var inner_circ = main_circles(true)[1];
 
-    var xlat = "translate(" + outer_circle_x + "," + outer_circle_y + ")";
+    var xlat = "translate(" + (Number(outer_circle_x) + Number(offset)) +
+      "," + outer_circle_y + ")";
     scope.svg.attr("transform", xlat).append("g");
     var maing = scope.svg.append("g");
     var ringg = scope.svg.append("g");
@@ -88,11 +96,13 @@ angular.module('optinomix-logo', []).directive('optinomixLogo', [function()
     if (logo_src) {
       d3.xml(logo_src, "image/svg+xml", function(xml) {
         var node = document.importNode(xml.documentElement, true);
-        var logog = scope.svg.append("g");
+        var logog = logo_layer == 'over' ?
+          scope.svg.append("g") : scope.svg.insert("g", ":first-child");
         logog.node().appendChild(node);
         var zeroxlat = "translate(" + (-logo_centre_x) + "," +
           (-logo_centre_y) + ")";
-        var ctrxlat = "translate(" + inner_circ.x + "," + inner_circ.y + ")";
+        var ctrxlat = "translate(" + (inner_circ.x - offset) + "," +
+          inner_circ.y + ")";
         var scale_factor = size / 200 * 2;
         var scale = "scale(" + scale_factor + ")";
         logog.attr("transform", ctrxlat + scale + zeroxlat);

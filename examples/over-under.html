@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en" ng-app="MyApp">
+<head>
+    <meta charset="utf-8">
+    <title>Optinomix logo examples</title>
+
+    <style>
+        .container {
+            width: 66%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        p {
+            color: #777;
+            font-family: serif;
+        }
+    </style>
+
+
+</head>
+<body ng-controller="MyCtrl">
+<br>
+<br>
+
+<div class="container">
+    <br>
+    <optinomix-logo style="float: right"
+                    size=100
+                    background="none"
+                    fill="rgba(238,59,22,0.8)"
+                    animation="40"
+                    stroke="rgba(255,255,255,0.8)"
+                    stroke-width=2
+                    logo-layer=under
+                    logo-src="../src/optinomix.svg"></optinomix-logo>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <optinomix-logo
+            size=150
+            background="none"
+            fill="#EE3B16"
+            animation="20"
+            stroke="white"
+            stroke-width=2
+            logo-layer=under
+            logo-src="../src/optinomix.svg"></optinomix-logo>
+    <br>
+    <optinomix-logo style="float: right"
+                    size=60
+                    offset=88
+                    background="white"
+                    fill="#EE3B16"
+                    animation="off"
+                    stroke="white"
+                    stroke-width=2
+                    logo-src="../src/optinomix.svg"></optinomix-logo>
+
+    <p>Awesome!</p>
+</div>
+
+<script src="../lib/jquery.js"></script>
+<script src="../lib/d3.v2.js"></script>
+<script src="../lib/angular.js"></script>
+<script src="../src/optinomix-logo.js"></script>
+<script>
+    angular.module('MyApp', ['optinomix-logo'])
+            .controller('MyCtrl', [function () {
+            }]);
+</script>
+</body>
+</html>
